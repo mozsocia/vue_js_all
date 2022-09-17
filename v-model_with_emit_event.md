@@ -74,11 +74,58 @@ export default {
 ```
 
 
-
+-------------------------------------------
 -----------------------------------------------
+UserName.vue
 ```vue
+<script>
+export default {
+  props: {
+        firstName: String,
+        lastName: String
+	},
+  emits: ['update:firstName', 'update:lastName']
+}
+</script>
+
+<template>
+  <input
+    type="text"
+    :value="firstName"
+    @input="$emit('update:firstName', $event.target.value)"
+  />
+  <input
+    type="text"
+    :value="lastName"
+    @input="$emit('update:lastName', $event.target.value)"
+  />
+</template>
 ```
+
+App.vue
+
 ```vue
+<script>
+import UserName from './UserName.vue'
+
+export default {
+  components: { UserName },
+  data() {
+    return {
+      first: 'John',
+      last: 'Doe'
+    }
+  }
+}
+</script>
+
+<template>
+  <h1>{{ first }} {{ last }}</h1>
+  <UserName
+    v-model:first-name="first"
+    v-model:last-name="last"
+  />
+</template>
 ```
 ```vue
 ```
