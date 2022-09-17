@@ -1,15 +1,17 @@
 #### two way of emit events
 
 ```vue
-<!-- MyComponent -->
+
 <button @click="$emit('someEvent')">click me</button>
 
 ```
 
 ```vue
+<button @click="handleClick">click me</button>
+
 export default {
   methods: {
-    submit() {
+    handleClick() {
       this.$emit('someEvent')
     }
   }
