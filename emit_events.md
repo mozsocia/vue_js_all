@@ -1,20 +1,24 @@
 #### two way of emit events
 
 ```vue
-<!-- MyComponent -->
+
 <button @click="$emit('someEvent')">click me</button>
 
 ```
 
 ```vue
+
+<button @click="handleClick">click me</button>
+
+<script>
 export default {
   methods: {
-    submit() {
+    handleClick() {
       this.$emit('someEvent')
     }
   }
 }
-
+</script>
 ```
 The parent can then listen to it using v-on:
 
@@ -40,7 +44,7 @@ Event Arguments
 ------------------------------------------------
 ### Declaring Emitted Events
 
-```vue
+```js
 export default {
   emits: ['inFocus', 'submit']
 }
@@ -77,10 +81,4 @@ App.vue
 ```vue
   <NewCom @send-me="callback" />
 
-```
-```vue
-```
-```vue
-```
-```vue
-```
+
