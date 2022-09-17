@@ -7,8 +7,10 @@
 ```
 
 ```vue
+
 <button @click="handleClick">click me</button>
 
+<script>
 export default {
   methods: {
     handleClick() {
@@ -16,7 +18,7 @@ export default {
     }
   }
 }
-
+</script>
 ```
 The parent can then listen to it using v-on:
 
@@ -42,7 +44,7 @@ Event Arguments
 ------------------------------------------------
 ### Declaring Emitted Events
 
-```vue
+```js
 export default {
   emits: ['inFocus', 'submit']
 }
@@ -79,10 +81,4 @@ App.vue
 ```vue
   <NewCom @send-me="callback" />
 
-```
-```vue
-```
-```vue
-```
-```vue
-```
+
